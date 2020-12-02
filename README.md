@@ -1,6 +1,8 @@
 # movie_web_by_react
-```javascript
+```shell
 npx create-react-app movie_app
+
+npm i prop-types => 내가 전달받은 props가 내가 원하는 props인지를 확인해 줌
 ```
 
 React JS Fundamentals Course
@@ -16,3 +18,13 @@ React JS Fundamentals Course
 
 - react application은 한 번에 하나의 component만 rendering할 수 있다.
   - 그 말은 즉슨 모든 component가 App 안에 들어가야한다는 뜻
+
+- javascript map
+```javascript
+let arr = [1, 2, 3, 4];
+
+array.map(item => { // function(item) {
+  console.log(item); // [0, 0, 0, 0]
+  return 0
+})
+```
