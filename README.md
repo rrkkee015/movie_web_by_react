@@ -45,3 +45,8 @@ array.map(item => { // function(item) {
 ### unmounting
 - component가 죽는 것과 같다.
   - componentWillUnmount() 메소드가 호출된다.
+
+### Axios
+- fetch도 좋지만, 이번에는 axios를 쓸 것이다.
+- axios는 fetch 위에 있는 layer라고 생각하면 된다.
+  - API 주소는 `https://yts-proxy.now.sh/list_movies.json`
