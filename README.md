@@ -28,3 +28,20 @@ array.map(item => { // function(item) {
   return 0
 })
 ```
+
+- **React는 state에 직접 접근해선 안되며, setState() 메소드를 호출할 때마다, 새로운 state를 가지고 class component를 rerender()한다.**
+
+## Life Cycle
+- class component가 생성 될 때, render 전에 호출되는 몇 가지 function이 있다. 물론 render 된 후, 호출되는 다른 function도 있다.
+### mounting
+- component가 태어나는 것과 같다.
+  - 먼저 호출되는 function은 constructor이다. Javascript에서 class를 만들 때 호출된다.
+  - component가 mount될 때, component가 screen에 표시될 때, component가 website를 갈 때 constructor를 호출한다.
+    - 그 다음 render를 호출한다.
+    - 그 다음 componentDidMount()를 호출한다. 
+### updating
+- component가 update를 의미한다. updating 되는 이유는 사용자 때문이다. 조작을 하니까. setStae()가 update다.
+  - render() 호출되고, componentDidUpdate()도 호출된다.
+### unmounting
+- component가 죽는 것과 같다.
+  - componentWillUnmount() 메소드가 호출된다.
