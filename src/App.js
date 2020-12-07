@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import Movie from "./Movie"
+import "./App.css"
 
 
 class App extends React.Component {
@@ -11,7 +13,8 @@ class App extends React.Component {
   // getMovies는 비동기임을 말하고, 함수 내부에선 내가 뭘 기다리길 원하냐? 물어봄
   getMovies = async () => {
     // 뭘 기다릴 건지 await로 알려준다.
-    const movies = await axios.get("https://yts-proxy.now.sh/list_movies.json");
+    const { data: { data: { movies } } } = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
+    this.setState({ movies: movies, isLoading: false });
   }
 
   // ComponentDidMount에서 data를 fetch할 예정이다.
@@ -26,8 +29,31 @@ class App extends React.Component {
   }
 
   render() {
-    const { isLoading } = this.state;
-    return <div>{isLoading ? "Loading" : "We are ready"}</div>
+    const { isLoading, movies } = this.state;
+    return (
+      <section className="container">
+        {isLoading ? (
+          <div className="loader">
+            <span className="loader__text">Loading...</span>
+          </div>
+        ) : (
+            <div className="movies">
+              {movies.map(movie => (
+                <Movie
+                  key={movie.id}
+                  id={movie.id}
+                  year={movie.year}
+                  title={movie.title}
+                  summary={movie.summary}
+                  poster={movie.medium_cover_image}
+                  genres={movie.genres}
+                />
+              ))}
+            </div>
+          )
+        }
+      </section>
+    )
   }
 }
 
