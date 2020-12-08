@@ -50,3 +50,9 @@ array.map(item => { // function(item) {
 - fetch도 좋지만, 이번에는 axios를 쓸 것이다.
 - axios는 fetch 위에 있는 layer라고 생각하면 된다.
   - API 주소는 `https://yts-proxy.now.sh/list_movies.json`
+
+### 배포
+`npm i gh-pages`
+- github가 static 파일을 띄워준다. 그래서 업로드를 해야한다.
+- `package.json`에 `homepage`를 추가하고 `scripts`에 `deploy, predeploy`를 추가하자
+- `predeploy`의 경우엔 `deploy`전에 build를 먼저 실행해주기로 하자.
